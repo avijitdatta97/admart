@@ -1,8 +1,11 @@
 import 'package:admart/presentation/screens/home_screen.dart';
+import 'package:admart/presentation/screens/main_bottom_nav_bar_screen.dart';
 import 'package:admart/presentation/utility/assets_path.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
+import '../widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -21,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _moveToNextScreen() async{
     await Future.delayed(const Duration(seconds: 3));
-    Get.to(() => const HomeScreen());
+    Get.off(() => const MainBottomNavBarScreen());
   }
 
   @override
@@ -31,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           children: [
             const Spacer(),
-            SvgPicture.asset(AssetsPath.appLogoSvg, width: 100,),
+            AppLogo(),
             const Spacer(),
             const CircularProgressIndicator(),
             const SizedBox(height: 16,),
